@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="../res/static/css/main.css">
+  <link rel="stylesheet" type="text/css" href="../res/layui/css/layui.css">
+  <script type="text/javascript" src="../res/layui/layui.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <script src="/shop/js/jquery-1.11.3.min.js"></script>
+  <style>
+    .comment{
+      margin-bottom: 13px;
+    }
+    .info{
+      margin-top: 5px;
+    }
+    .hf{
+      margin-left: 20px;
+    }
+    .ly_content{
+      margin: 17px 0;
+    }
+    .hfFrom{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!--<div class="site-nav-bg">
+    <div class="site-nav w1200">
+      <p class="sn-back-home">
+        <i class="layui-icon layui-icon-home"></i>
+        <a href="#">首页</a>
+      </p>
+      <div class="sn-quick-menu">
+       <div class="login"><a href="login.html">登录</a></div>
+        <div class="sp-cart"><a href="shopcart.html">购物车</a><span>2</span></div>
+      </div>
+    </div>
+  </div>
+
+-->
+
+  <div class="header">
+    <div class="headerLayout w1200">
+      <div class="headerCon">
+        <h1 class="mallLogo">
+          <a href="#" title="柳州本地商城">
+           柳州本地商城
+          </a>
+        </h1>
+        <div class="mallSearch">
+          <form action="" class="layui-form" novalidate>
+            <input type="text" name="title" required  lay-verify="required" autocomplete="off" class="layui-input" placeholder="请输入需要的商品">
+            <button class="layui-btn" lay-submit lay-filter="">
+                <i class="layui-icon layui-icon-search"></i>
+            </button>
+            <input type="hidden" name="" value="">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="content content-nav-base datails-content">
+    <div class="main-nav">
+      <div class="inner-cont0">
+
+      </div>
+    </div>
+    <div class="data-cont-wrap w1200">
+      <div class="crumb">
+        <a href="javascript:;">首页</a>
+        <span>></span>
+        <a href="javascript:;">所有商品</a>
+        <span>></span>
+        <a href="javascript:;">产品详情</a>
+      </div>
+      <div class="product-intro layui-clear">
+        <div class="preview-wrap">
+          <a href="javascript:;"><img src="../res/static/image/timg%20(1).jpg" style="width: 93%;height: 325px;"></a>
+        </div>
+        <div class="itemInfo-wrap">
+          <div class="itemInfo">
+            <div class="title">
+              <h4>蔡林记</h4>
+              <span><i class="layui-icon layui-icon-rate-solid"></i>收藏</span>
+            </div>
+            <div class="summary">
+              <p>湖北省名小吃店</p>
+            </div>
+            <div class="choose-attrs">
+              <div class="color layui-clear"><span class="title">联系电话</span> <div class="color-cont"><span>&nbsp;&nbsp;1501312312</span></div></div>
+              <div class="number layui-clear"><span class="title">商家地址&nbsp;&nbsp;&nbsp;&nbsp;</span><span>武汉市江岸区xxxx</span></div>
+            </div>
+            <!--<div class="choose-btns">
+              <button class="layui-btn layui-btn-primary purchase-btn">立刻购买</button>
+              <button class="layui-btn  layui-btn-danger car-btn"><i class="layui-icon layui-icon-cart-simple"></i>加入购物车</button>  
+            </div>-->
+          </div>
+        </div>
+      </div>
+      <div class="layui-clear">
+        <div class="aside">
+          <h4>营业执照</h4>
+          <div class="item-list">
+            <div class="item">
+              <img style="width: 60%;" src="../res/static/img/yyzz.jpg">
+
+            </div>
+
+        </div>
+        <div class="detail">
+          <h4>留言</h4>
+          <div style="width: 800px">
+            <textarea id="demo" class="contentInput">
+
+            </textarea>
+            <button class="layui-btn fbut" style="position:absolute;left: 30%;margin-top: 15px;">发表留言</button>
+          </div>
+          <div style="width: 100%;height: 60px"></div>
+          <h4>最新留言</h4>
+          <div id="commentList">
+            <ul>
+              <li>
+                <div class="comment">
+                  &nbsp;&nbsp;&nbsp;&nbsp; <span>李四：</span>
+                  <div class="ly_content">
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有没有食品安全认证</p>
+                  </div>
+                  <div class="info"><span>2020-10-06</span> &nbsp;&nbsp;<a href="#">回复</a></div>
+                  <div class="hfFrom">
+                    <textarea style="width: 600px;height: 103px;"></textarea><br>
+                    <button class="layui-btn">提交回复</button>
+                  </div>
+                  <hr>
+                </div>
+                <div class="hf">
+                  &nbsp;&nbsp;&nbsp;&nbsp;张三回复@ <span style="color: orangered">李四</span>：
+                  <div class="ly_content">
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当然有!</p>
+                  </div>
+                  <div class="info"><span>2020-10-06</span>&nbsp;&nbsp;<a href="#">回复</a></div>
+                  <div class="hfFrom">
+                    <textarea style="width: 600px;height: 103px;"></textarea><br>
+                    <button class="layui-btn">提交回复</button>
+                  </div>
+                </div>
+                <hr class="layui-bg-red">
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+<script type="text/javascript">
+  var layedit=null;
+  var editIndex = null;
+    layui.use(['jquery', 'form', 'layedit', 'flow','layer'], function() {
+        var form = layui.form;
+        /* var $ = layui.jquery;*/
+         layedit = layui.layedit;
+        var flow = layui.flow;
+        layer = layui.layer;
+        //评论和留言的编辑器
+         editIndex = layedit.build('demo', {
+            height: 150,
+            tool: [
+                'strong' //加粗
+                ,'italic' //斜体
+                ,'underline' //下划线
+                ,'del' //删除线
+
+                ,'|' //分割线
+
+                ,'left' //左对齐
+                ,'center' //居中对齐
+                ,'right' //右对齐
+                ,'link' //超链接
+                ,'unlink' //清除链接
+                ,'face' //表情
+                ,'image' //插入图片
+                ,'help' //帮助
+            ]
+        });
+
+    })
+  layui.config({
+    base: '../res/static/js/util/' //你存放新模块的目录，注意，不是layui的模块目录
+  }).use(['mm','jquery'],function(){
+      var mm = layui.mm,$ = layui.$;
+      var cur = $('.number-cont input').val();
+      $('.number-cont .btn').on('click',function(){
+        if($(this).hasClass('add')){
+          cur++;
+         
+        }else{
+          if(cur > 1){
+            cur--;
+          }  
+        }
+        $('.number-cont input').val(cur)
+      })
+      
+  });
+$(".fbut").click(function () {
+
+    var content=layedit.getText(editIndex);
+    console.log(content)
+  if (content==""){
+      layer.alert('留言不能为空！',{icon:5})
+  }else {
+      $("#commentList ul").append("   <li>" +
+          "                <div class='comment'>\n" +
+          "                  &nbsp;&nbsp;&nbsp;&nbsp; <span>李四：</span>" +
+          "                  <div class='ly_content'>" +
+          "                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+content+"</p>\n" +
+          "                  </div>" +
+          "                  <div class='info'><span>2020-10-06</span> &nbsp;&nbsp;<a href=''#'>回复</a></div>\n" +
+          "                  <div class=\"hfFrom\">\n" +
+          "                    <textarea style='width: 600px;height: 103px;'></textarea><br>" +
+          "                    <button class='layui-btn'>提交回复</button>" +
+          "                  </div>" +
+          "                  <hr>" +
+          "                </div>")
+  }
+})
+</script>
+
+
+</html>

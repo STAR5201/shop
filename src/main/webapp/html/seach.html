@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="../res/static/css/main.css">
+	<link rel="stylesheet" type="text/css" href="../res/layui/css/layui.css">
+	<script type="text/javascript" src="../res/layui/layui.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<script src="../js/jquery-1.11.3.min.js"></script>
+	<style>
+		/* .img-box ul li{
+           float: left;
+         }*/
+		.product-item-box div:hover{
+			background-color:darkgreen;
+		}
+		.banner{
+			width: 65%;
+			height: 298px;
+			position: absolute;
+			left: 25%;
+		}
+		/*滚动条样式*/
+		.types::-webkit-scrollbar {
+			width: 4px;
+			/*height: 4px;*/
+		}
+		.types::-webkit-scrollbar-thumb {
+			border-radius: 10px;
+			-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+			background: rgba(0,0,0,0.2);
+		}
+		.types::-webkit-scrollbar-track {
+			-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+			border-radius: 0;
+			background: rgba(0,0,0,0.1);
+
+		}
+		.types li:hover{
+			background-color: #cfb2f6;
+		}
+	</style>
+</head>
+<body id="list-cont">
+
+
+<div class="header">
+	<div class="headerLayout w1200">
+		<div class="headerCon">
+			<h1 class="mallLogo">
+				<a href="#" title="柳州商城">
+					<span>柳州商城</span>
+					<!--    <img src="../res/static/img/logo.png"> -->
+				</a>
+			</h1>
+			<!-- 搜索框 -->
+			<div class="mallSearch">
+				<form action="" class="layui-form" novalidate>
+					<input type="text" name="title" value="食品" required  lay-verify="required" autocomplete="off" class="layui-input" placeholder="请输入需要的商品/行业">
+					<button type="button" id="seachBut" class="layui-btn" lay-submit lay-filter="">
+						<i class="layui-icon layui-icon-search"></i>
+					</button>
+					<input type="hidden" name="" value="">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="content">
+
+
+
+	<div class="product-list-box" id="product-list-box">
+		<div class="product-list-cont w1200">
+			<!--<h4>更多推荐</h4>-->
+			<div style="width: 100%;height: 50px;"></div>
+			<div class="product-item-box layui-clear">
+
+			</div>
+		</div>
+	</div>
+</div>
+<div id="page" style="    width: 400px;height: 30px;position: relative;top: -97px;left: 38%;"></div>
+</body>
+
+<script type="text/javascript">
+    layui.use('laypage', function(){
+        var laypage = layui.laypage;
+
+        //执行一个laypage实例
+        laypage.render({
+            elem: 'page' //注意，这里的 test1 是 ID，不用加 # 号
+            ,count: 50 //数据总数，从服务端得到
+        });
+    });
+    layui.config({
+        base: '../res/static/js/util/' //你存放新模块的目录，注意，不是layui的模块目录
+    }).use(['mm','carousel'],function(){
+        var carousel = layui.carousel,
+            mm = layui.mm;
+        var option = {
+            elem: '#test1'
+            ,width: '100%' //设置容器宽度
+            ,arrow: 'always'
+            ,height:'298'
+            ,indicator:'none'
+        }
+        var option2 = {
+            elem: '#test2'
+            ,width: '61%' //设置容器宽度
+            ,arrow: 'always'
+            ,height:'402'
+            ,indicator:'inside'
+        }
+        carousel.render(option);
+        carousel.render(option2);
+        // 模版引擎导入
+        // var ins = carousel.render(option);
+        // var html = demo.innerHTML;
+        // var listCont = document.getElementById('list-cont');
+        // // console.log(layui.router("#/about.html"))
+        //  mm.request({
+        //    url: '../json/index.json',
+        //    success : function(res){
+        //      console.log(res)
+        //      listCont.innerHTML = mm.renderHtml(html,res)
+        //      ins.reload(option);
+        //    },
+        //    error: function(res){
+        //      console.log(res);
+        //    }
+        //  })
+        $.ajax({
+            url:'/shop/typeList.json',
+            type:"get",
+            dataType:"json",
+            success:function(da){
+                var list=da.data
+                for(var i=0;i<list.length;i++){
+                    $(".types").append(" <li class='nav-item'>"+
+                        "<div class='title'>"+list[i].typeName+"</div>"+
+
+                        "<i class='layui-icon layui-icon-righ'></i>"+
+                        "</li>")
+                }
+            }
+
+        })
+    });
+    $.ajax({
+        url:"/shop/commodity.json",
+        type:"get",
+        datatype:"json",
+        success:function (data) {
+            var da=data.list;
+            for(var i=0;i<da.length;i++){
+                $(".product-item-box").append(" <div class='list-item'>" +
+                    "<a href='details.html'><img style='width: 176px;height: 201px;' src="+da[i].src+"></a>" +
+                    "<p style='text-align: center;'>"+da[i].cname+"</p>" +
+                    /* "<span>￥100.00</span>\n" +*/
+                    "</div>")
+            }
+        }
+
+
+    })
+    $("#seachBut").click(function () {
+        location.href="seach.html"
+    })
+</script>
+
+</html>

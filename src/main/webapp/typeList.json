@@ -1,0 +1,66 @@
+{
+	"data": [{
+			"typeName": "餐饮类"
+		},
+		{
+			"typeName": "五交化家电类"
+		},
+		{
+			"typeName": "机电设备类"
+		},
+		{
+			"typeName": "仪表仪器类"
+		},
+		{
+			"typeName": "电脑数码类"
+		},
+		{
+			"typeName": "机电设备类"
+		},
+		{
+			"typeName": "工程机械类"
+		},
+		{
+			"typeName": "标准件类"
+		},
+		{
+			"typeName": "电气设备类"
+		},
+		{
+			"typeName": "工具类"
+		},
+		{
+			"typeName": "文具类"
+		},
+		{
+			"typeName": "农业机械类"
+		},
+		{
+			"typeName": "日常用品类"
+		},
+		{
+			"typeName": "服务类"
+		},
+		{
+			"typeName": "器材租赁类"
+		},
+		{
+			"typeName": "生鲜类"
+		},
+		{
+			"typeName": "食品类"
+		},
+		{
+			"typeName": "超市类"
+		},
+			{
+			"typeName": "工艺美术类"
+		},
+			{
+			"typeName": "花鸟园林类"
+		},
+			{
+			"typeName": "文玩古玩类超市类"
+		}
+	]
+}
